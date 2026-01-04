@@ -20,7 +20,7 @@ Twitch API を使用して、ゲームの公式ボックスアート（バナー
 
 ```bash
 # リポジトリをクローン
-git clone [https://github.com/あなたのユーザー名/twitch-banner-tool.git](https://github.com/あなたのユーザー名/twitch-banner-tool.git)
+git clone [https://github.com/あなたのユーザー名/twitch-banner-tool.git](https://github.com/mashirovoc/twitch-banner-tool.git)
 
 # 依存関係のインストール
 npm install
