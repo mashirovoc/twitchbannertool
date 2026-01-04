@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Twitch Banner Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Twitch API を使用して、ゲームの公式ボックスアート（バナー画像）を簡単に検索・取得できるデスクトップアプリケーションです。
 
-Currently, two official plugins are available:
+## 🚀 特徴
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **クイック検索**: ゲーム名を入力するだけで、Twitch 公式の高品質なバナーを瞬時に表示。
+- **永続化設定**: Client ID と Client Secret をローカルに保存し、再入力の手間を省きます。
+- **ポータブル**: インストール不要の `.exe` 形式で動作。
 
-## React Compiler
+## 🛠 使い方
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+1. [Releases](https://github.com/あなたのユーザー名/リポジトリ名/releases) ページから最新の `.exe` をダウンロードします。
+2. [Twitch Developer Console](https://dev.twitch.tv/console) でアプリを登録し、`Client ID` と `Client Secret` を取得します。
+3. アプリを起動し、取得した ID/Secret と検索したいゲーム名を入力して実行してください。
 
-## Expanding the ESLint configuration
+## 開発者向けセットアップ
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+自分でビルドまたはカスタマイズしたい場合：
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# リポジトリをクローン
+git clone [https://github.com/あなたのユーザー名/twitch-banner-tool.git](https://github.com/あなたのユーザー名/twitch-banner-tool.git)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 依存関係のインストール
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 開発モードで起動
+npm run electron:dev
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# .exe のビルド
+npm run electron:build
 ```
